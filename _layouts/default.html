@@ -4,14 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} — {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
   <title>{% if page.title and page.title != 'Home' %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
       <a href="{{ '/' | relative_url }}" class="site-logo">Deburson</a>
-      <nav class="site-nav">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="site-nav" aria-label="Primary navigation">
         <a href="/#about">About</a>
         <a href="/#services">Services</a>
         <a href="/#experience">Experience</a>
@@ -24,8 +37,65 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; {{ 'now' | date: "%Y" }} Deburson Limited. Registered in England and Wales.</p>
+      <div class="footer-inner">
+        <p>&copy; {{ 'now' | date: "%Y" }} Deburson Limited. Registered in England and Wales.</p>
+        <div class="footer-links">
+          <a href="mailto:mark@deburson.com">mark@deburson.com</a>
+          <a href="https://www.linkedin.com/in/mlevitt1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // Hamburger menu
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.textContent = open ? '✕' : '☰';
+      });
+      // Close when a nav link is clicked
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = '☰';
+        });
+      });
+    }
+
+    // Scroll spy
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.site-nav a');
+    if (sections.length > 0 && navLinks.length > 0) {
+      const spyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href').endsWith('#' + entry.target.id));
+            });
+          }
+        });
+      }, { rootMargin: '-15% 0px -70% 0px' });
+      sections.forEach(s => spyObserver.observe(s));
+    }
+
+    // Fade-in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    if (fadeEls.length > 0) {
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      fadeEls.forEach(el => fadeObserver.observe(el));
+    }
+  </script>
 </body>
 </html>
