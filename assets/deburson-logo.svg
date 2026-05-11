@@ -1,0 +1,38 @@
+<svg width="100%" viewBox="0 0 680 200" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Deburson Product Consulting logo</title>
+  <desc>Minimalist logo with a stacked-bars D mark referencing platform layers and APIs</desc>
+  <style>
+    .bar { fill: #111827; }
+    .bar-acc { fill: #06d6a0; }
+    .cur { fill: #06d6a0; }
+    .wm { fill: #111827; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    .sub { fill: #9ca3af; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    .acc { fill: #06d6a0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    .div-l { stroke: #e5e7eb; }
+    @media (prefers-color-scheme: dark) {
+      .bar { fill: #f1f5f9; }
+      .wm { fill: #f1f5f9; }
+      .sub { fill: #6b7280; }
+      .div-l { stroke: #374151; }
+    }
+  </style>
+
+  <!-- Stacked bar D mark — each bar = a platform layer; accent = core API layer -->
+  <g transform="translate(50, 75)">
+    <rect x="0" y="0"  width="20" height="7" rx="3.5" class="bar"/>
+    <rect x="0" y="11" width="32" height="7" rx="3.5" class="bar"/>
+    <rect x="0" y="22" width="44" height="7" rx="3.5" class="bar-acc"/>
+    <rect x="0" y="33" width="32" height="7" rx="3.5" class="bar"/>
+    <rect x="0" y="44" width="20" height="7" rx="3.5" class="bar"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="116" y="112" font-size="50" font-weight="300" letter-spacing="-0.5" class="wm">deburson<tspan class="cur" dx="4">_</tspan></text>
+
+  <!-- Divider -->
+  <line x1="116" y1="124" x2="575" y2="124" stroke-width="0.75" class="div-l"/>
+
+  <!-- Subtitle: // PRODUCT CONSULTING -->
+  <text x="116" y="146" font-size="11" font-weight="400" letter-spacing="0" class="acc">// </text>
+  <text x="130" y="146" font-size="11" font-weight="400" letter-spacing="5.5" class="sub">PRODUCT CONSULTING</text>
+</svg>

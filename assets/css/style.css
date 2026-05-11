@@ -81,12 +81,17 @@ body {
 }
 
 .site-logo {
-  color: #fff;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.site-logo img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .nav-toggle {
