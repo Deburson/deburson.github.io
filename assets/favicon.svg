@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="5" fill="#152038"/>
-  <text x="16" y="23"
-    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-    font-size="19"
-    font-weight="700"
-    fill="#ffffff"
-    text-anchor="middle">D</text>
+  <path fill-rule="evenodd" fill="#ffffff"
+    d="M6 5 L14 5 Q26 5 26 16 Q26 27 14 27 L6 27 Z
+       M11 9 L14 9 Q21 9 21 16 Q21 23 14 23 L11 23 Z"/>
 </svg>
