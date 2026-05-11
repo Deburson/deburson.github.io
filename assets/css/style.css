@@ -6,8 +6,8 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --color-navy: #152038;
-  --color-blue: #2563eb;
-  --color-blue-dark: #1d4ed8;
+  --color-accent: #06d6a0;
+  --color-accent-dark: #05b589;
   --color-text: #1f2937;
   --color-text-secondary: #374151;
   --color-text-muted: #6b7280;
@@ -49,7 +49,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-blue);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -134,7 +134,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--color-blue);
+  background: var(--color-accent);
   border-radius: 1px;
   transform: scaleX(0);
   transform-origin: left;
@@ -181,21 +181,21 @@ body {
 
 .btn {
   display: inline-block;
-  background: var(--color-blue);
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-navy);
   padding: 13px 30px;
   border-radius: var(--radius-sm);
   text-decoration: none;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.01em;
   transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .btn:hover {
-  background: var(--color-blue-dark);
+  background: var(--color-accent-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 4px 12px rgba(6, 214, 160, 0.4);
 }
 
 /* ===========================
@@ -259,8 +259,10 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--color-blue);
+  color: var(--color-text-muted);
   margin-bottom: 12px;
+  padding-left: 10px;
+  border-left: 3px solid var(--color-accent);
 }
 
 .section-title {
@@ -442,19 +444,19 @@ body {
 
 .contact-link {
   display: inline-block;
-  color: var(--color-blue);
+  color: var(--color-text-secondary);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  border: 1px solid var(--color-blue);
+  border: 1px solid var(--color-accent);
   padding: 11px 22px;
   border-radius: var(--radius-sm);
   transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .contact-link:hover {
-  background: var(--color-blue);
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-navy);
   transform: translateY(-1px);
 }
 
